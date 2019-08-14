@@ -1,0 +1,16 @@
+version: 0.2
+ 
+env:
+  variables:
+    DOCKER_BUILDKIT: "0"
+ 
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - docker --version
+  build:
+    commands:
+      - docker build --rm --no-cache -t moby:normal .
